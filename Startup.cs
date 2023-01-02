@@ -80,10 +80,8 @@ namespace CallingBotSample
 
             // app.UseHttpsRedirection();
             
-             var currentDirectory ="/";
-
             var config = new ConfigurationBuilder()
-                .SetBasePath(currentDirectory)
+                .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build();

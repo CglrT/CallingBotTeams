@@ -110,15 +110,20 @@ namespace CallingBotSample.Bots
 
             if (input.StartsWith("createcall"))
             {
-                var useridToCall = input.Split('=')[1];
+                var useridsToCall = input.Split('=')[1];
 
-                //f694855d-8b42-4920-869a-8092629649c6
-
-                var call = await graph.CreateCallAsync(useridToCall);
-                if (call != null)
+                foreach (var useridToCall in useridsToCall.Split(","))
                 {
-                    await turnContext.SendActivityAsync("Placed a call Successfully.");
+                    //f694855d-8b42-4920-869a-8092629649c6
+
+                    var call = await graph.CreateCallAsync(useridToCall);
+                    if (call != null)
+                    {
+                        await turnContext.SendActivityAsync("Placed a call Successfully.");
+                    }
                 }
+
+                
             }
 
             //switch (input)

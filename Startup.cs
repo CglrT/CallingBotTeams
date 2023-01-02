@@ -80,7 +80,7 @@ namespace CallingBotSample
 
             // app.UseHttpsRedirection();
             
-            var currentDirectory = Assembly.GetExecutingAssembly().Location;
+             var currentDirectory ="/";
 
             var config = new ConfigurationBuilder()
                 .SetBasePath(currentDirectory)
